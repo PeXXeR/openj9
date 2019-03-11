@@ -1767,8 +1767,7 @@ static TR::TreeTop* generateArraysetFromSequentialStores(TR::Compilation* comp, 
                {
                opcode = TR::cstorei;
                int32_t constValue = (int32_t)arrayset.getConstant();
-               if (istoreNode->getOpCodeValue() == TR::bstorei ||
-                   istoreNode->getOpCodeValue() == TR::bustorei)
+               if (istoreNode->getOpCodeValue() == TR::bstorei)
                   {
                   uint8_t byteConstValue = (uint8_t) constValue;
                   constValue = (int32_t) byteConstValue;
@@ -1782,8 +1781,7 @@ static TR::TreeTop* generateArraysetFromSequentialStores(TR::Compilation* comp, 
                {
                opcode = TR::istorei;
                int32_t constValue = (int32_t)arrayset.getConstant();
-               if (istoreNode->getOpCodeValue() == TR::bstorei ||
-                   istoreNode->getOpCodeValue() == TR::bustorei)
+               if (istoreNode->getOpCodeValue() == TR::bstorei)
                   {
                   uint8_t byteConstValue = (uint8_t) constValue;
                   constValue = (int32_t) byteConstValue;
@@ -1806,8 +1804,7 @@ static TR::TreeTop* generateArraysetFromSequentialStores(TR::Compilation* comp, 
                int64_t longConstValue = (int64_t) constValue;
                constValueNode = TR::Node::create(istoreNode, TR::lconst, 0, 0);
 
-               if (istoreNode->getOpCodeValue() == TR::bstorei ||
-                   istoreNode->getOpCodeValue() == TR::bustorei)
+               if (istoreNode->getOpCodeValue() == TR::bstorei)
                   {
                   uint8_t byteConstValue = (uint8_t) longConstValue;
                   longConstValue = (int64_t) byteConstValue;
